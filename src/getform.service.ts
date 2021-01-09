@@ -4,7 +4,8 @@ import * as cheerio from 'cheerio';
 const xlsx = require('node-xlsx');
 const fs = require('fs');
 import 'dotenv/config';
-
+import * as path from 'path';
+const xlsxPath = path.resolve(__dirname, '../', 'maotai.xlsx');
 @Injectable()
 export class GetformService {
     private readonly logger = new Logger(GetformService.name);
@@ -31,6 +32,6 @@ export class GetformService {
     }
     writeExcel(name, data) {
         var buffer = xlsx.build([{ name: 'sheet1', data: data }]);
-        fs.writeFileSync(name + '.xlsx', buffer, { 'flag': 'w' });
+        fs.writeFileSync(xlsxPath, buffer, { 'flag': 'w' });
     }
 }

@@ -6,14 +6,15 @@ export class AppService {
   constructor(
     private readonly getformService: GetformService,
   ) { }
+  
+  getHello() {
+    this.logger.log('=======');
+    return 'Hello World!';
+  }
   async main() {
     this.logger.log('=======');
     await this.getformService.getform();
     return;
   }
-  // getHello() {
-  //   this.logger.log('=======');
-  //   this.main()
-  //   return 'Hello World!';
-  // }
+
 }
